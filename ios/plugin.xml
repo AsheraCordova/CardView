@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.ashera.cardview.ios"
+        version="1.0">
+
+  <name>CordovaCardViewPlugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+  
+  <platform name="ios">
+    <config-file target="config.xml" parent="/widget">
+      <feature name="com.ashera.cardview.ios">
+        	<param name="ios-package" value="CordovaCardViewPlugin" />
+         	<param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+   	 <!-- start ios -->
+     <header-file src="ios/src/CardViewImpl.h" target-dir="CardView/ios/src"/>
+     <source-file src="ios/src/CardViewImpl.m" target-dir="CardView/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/CardViewPlugin.h" target-dir="CardView/ios/src"/>
+     <source-file src="ios/src/CardViewPlugin.m" target-dir="CardView/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/CordovaCardViewPlugin.h" target-dir="CardView/ios/src"/>
+     <source-file src="ios/src/CordovaCardViewPlugin.m" target-dir="CardView/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <!-- ios end -->
+     
+      <!-- start AndroidXJCardView -->
+     <header-file src="library/AndroidXJCardView/src/CardView.h" target-dir="CardView/AndroidXJCardView/src"/>
+     <source-file src="library/AndroidXJCardView/src/CardView.m" target-dir="CardView/AndroidXJCardView/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJCardView/src/CardViewApi21Impl.h" target-dir="CardView/AndroidXJCardView/src"/>
+     <source-file src="library/AndroidXJCardView/src/CardViewApi21Impl.m" target-dir="CardView/AndroidXJCardView/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJCardView/src/CardViewDelegate.h" target-dir="CardView/AndroidXJCardView/src"/>
+     <source-file src="library/AndroidXJCardView/src/CardViewDelegate.m" target-dir="CardView/AndroidXJCardView/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJCardView/src/CardViewImpl.h" target-dir="CardView/AndroidXJCardView/src"/>
+     <source-file src="library/AndroidXJCardView/src/CardViewImpl.m" target-dir="CardView/AndroidXJCardView/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJCardView/src/RoundRectDrawable.h" target-dir="CardView/AndroidXJCardView/src"/>
+     <source-file src="library/AndroidXJCardView/src/RoundRectDrawable.m" target-dir="CardView/AndroidXJCardView/src" compiler-flags="-fno-objc-arc"/>
+     <header-file src="library/AndroidXJCardView/src/RoundRectDrawableWithShadow.h" target-dir="CardView/AndroidXJCardView/src"/>
+     <source-file src="library/AndroidXJCardView/src/RoundRectDrawableWithShadow.m" target-dir="CardView/AndroidXJCardView/src" compiler-flags="-fno-objc-arc"/>
+     <!-- AndroidXJCardView end -->
+     <!-- start tsc -->
+     <source-file src="tsc/src/ios/widget/CardViewImpl.ts" target-dir="tsc/src/ios/widget"/>
+     <!-- tsc end -->
+  </platform>
+
+</plugin>
