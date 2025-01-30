@@ -17,7 +17,7 @@ https://asheracordova.github.io/doc/androidx/cardview/widget/CardView.html
 
 ## Widgets
 * androidx.cardview.widget.CardView
-* 
+
 ## CardView (ios)
 IOS does not support setting cornerRadius and shadow on the same layer. Corner Radius requires clipBounds to be set on the view while setting clipBounds causes shadow to be hidden.
 
