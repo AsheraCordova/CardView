@@ -1,5 +1,23 @@
 # CardView
+Project which adds support for android CardView.
 
+## Installation
+To install the plugin use:
+
+```
+cordova plugin add https://github.com/AsheraCordova/CardView.git
+```
+
+## Important Links
+https://asheracordova.github.io/
+
+https://asheracordova.github.io/doc/help-doc.html
+
+https://asheracordova.github.io/doc/androidx/cardview/widget/CardView.html
+
+## Widgets
+* androidx.cardview.widget.CardView
+* 
 ## CardView (ios)
 IOS does not support setting cornerRadius and shadow on the same layer. Corner Radius requires clipBounds to be set on the view while setting clipBounds causes shadow to be hidden.
 
