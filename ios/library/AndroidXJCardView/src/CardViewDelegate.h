@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\CardViewDelegate.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CardViewDelegate")
@@ -18,6 +19,8 @@
 
 @class ADDrawable;
 @class ADView;
+@class JavaLangBoolean;
+@class JavaLangInteger;
 
 /*!
  @brief Interface provided by CardView to implementations.
@@ -30,17 +33,17 @@
 
 - (ADDrawable *)getCardBackground;
 
-- (jboolean)getUseCompatPadding;
+- (bool)getUseCompatPadding;
 
-- (jboolean)getPreventCornerOverlap;
+- (bool)getPreventCornerOverlap;
 
-- (void)setShadowPaddingWithInt:(jint)left
-                        withInt:(jint)top
-                        withInt:(jint)right
-                        withInt:(jint)bottom;
+- (void)setShadowPaddingWithInt:(int32_t)left
+                        withInt:(int32_t)top
+                        withInt:(int32_t)right
+                        withInt:(int32_t)bottom;
 
-- (void)setMinWidthHeightInternalWithInt:(jint)width
-                                 withInt:(jint)height;
+- (void)setMinWidthHeightInternalWithInt:(int32_t)width
+                                 withInt:(int32_t)height;
 
 - (ADView *)getCardView;
 
@@ -51,6 +54,7 @@ J2OBJC_EMPTY_STATIC_INIT(ADXCardViewDelegate)
 J2OBJC_TYPE_LITERAL_HEADER(ADXCardViewDelegate)
 
 #define AndroidxCardviewWidgetCardViewDelegate ADXCardViewDelegate
+
 
 #endif
 

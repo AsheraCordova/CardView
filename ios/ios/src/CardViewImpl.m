@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCardViewPlugin\src\main\java\com\ashera\cardview\CardViewImpl.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "BaseHasWidgets.h"
 #include "CardView.h"
 #include "CardViewImpl.h"
@@ -43,8 +48,12 @@
 #include "HasLifeCycleDecorators.h"
 #include "ASUIScrollView.h"
 
-@protocol JavaUtilList;
-@protocol JavaUtilMap;
+
+@class NSString;
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
@@ -78,14 +87,14 @@
 
 - (void)createSimpleWrapableView;
 
-- (jboolean)hasScrollView;
+- (bool)hasScrollView;
 
-- (jboolean)isViewWrapped;
+- (bool)isViewWrapped;
 
-- (void)setForegroundFrameWithInt:(jint)l
-                          withInt:(jint)t
-                          withInt:(jint)r
-                          withInt:(jint)b;
+- (void)setForegroundFrameWithInt:(int32_t)l
+                          withInt:(int32_t)t
+                          withInt:(int32_t)r
+                          withInt:(int32_t)b;
 
 - (void)invalidateWrapViewHolder;
 
@@ -95,10 +104,10 @@
 
 - (void)nativeCreateWithJavaUtilMap:(id<JavaUtilMap>)params;
 
-- (void)nativeMakeFrameForChildWidgetWithInt:(jint)l
-                                     withInt:(jint)t
-                                     withInt:(jint)r
-                                     withInt:(jint)b;
+- (void)nativeMakeFrameForChildWidgetWithInt:(int32_t)l
+                                     withInt:(int32_t)t
+                                     withInt:(int32_t)r
+                                     withInt:(int32_t)b;
 
 - (void)loadCustomAttributesWithNSString:(NSString *)localName;
 
@@ -142,11 +151,11 @@ __attribute__((unused)) static void ASCardViewImpl_nativePostCreate(ASCardViewIm
 
 __attribute__((unused)) static void ASCardViewImpl_createSimpleWrapableView(ASCardViewImpl *self);
 
-__attribute__((unused)) static jboolean ASCardViewImpl_hasScrollView(ASCardViewImpl *self);
+__attribute__((unused)) static bool ASCardViewImpl_hasScrollView(ASCardViewImpl *self);
 
-__attribute__((unused)) static jboolean ASCardViewImpl_isViewWrapped(ASCardViewImpl *self);
+__attribute__((unused)) static bool ASCardViewImpl_isViewWrapped(ASCardViewImpl *self);
 
-__attribute__((unused)) static void ASCardViewImpl_setForegroundFrameWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, jint l, jint t, jint r, jint b);
+__attribute__((unused)) static void ASCardViewImpl_setForegroundFrameWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, int32_t l, int32_t t, int32_t r, int32_t b);
 
 __attribute__((unused)) static void ASCardViewImpl_invalidateWrapViewHolder(ASCardViewImpl *self);
 
@@ -156,18 +165,18 @@ __attribute__((unused)) static void ASCardViewImpl_setShadowOffsetWithId_(ASCard
 
 __attribute__((unused)) static void ASCardViewImpl_nativeCreateWithJavaUtilMap_(ASCardViewImpl *self, id<JavaUtilMap> params);
 
-__attribute__((unused)) static void ASCardViewImpl_nativeMakeFrameForChildWidgetWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, jint l, jint t, jint r, jint b);
+__attribute__((unused)) static void ASCardViewImpl_nativeMakeFrameForChildWidgetWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, int32_t l, int32_t t, int32_t r, int32_t b);
 
 __attribute__((unused)) static void ASCardViewImpl_loadCustomAttributesWithNSString_(ASCardViewImpl *self, NSString *localName);
 
 @interface ASCardViewImpl_CardViewExt () {
  @public
-  __unsafe_unretained ASCardViewImpl *this$0_;
+  WEAK_ ASCardViewImpl *this$0_;
   ASMeasureEvent *measureFinished_;
   ASOnLayoutEvent *onLayoutEvent_;
   id<JavaUtilList> overlays_;
-  jint mMaxWidth_;
-  jint mMaxHeight_;
+  int32_t mMaxWidth_;
+  int32_t mMaxHeight_;
   id<JavaUtilMap> templates_;
 }
 
@@ -194,6 +203,7 @@ __attribute__((unused)) static void ASCardViewImpl_$Lambda$1_initWithASIWidget_(
 __attribute__((unused)) static ASCardViewImpl_$Lambda$1 *new_ASCardViewImpl_$Lambda$1_initWithASIWidget_(id<ASIWidget> capture$0) NS_RETURNS_RETAINED;
 
 __attribute__((unused)) static ASCardViewImpl_$Lambda$1 *create_ASCardViewImpl_$Lambda$1_initWithASIWidget_(id<ASIWidget> capture$0);
+
 
 NSString *ASCardViewImpl_LOCAL_NAME = @"androidx.cardview.widget.CardView";
 NSString *ASCardViewImpl_GROUP_NAME = @"androidx.cardview.widget.CardView";
@@ -262,16 +272,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   return cardView_;
 }
 
-- (jboolean)removeWithASIWidget:(id<ASIWidget>)w {
-  jboolean remove = [super removeWithASIWidget:w];
+- (bool)removeWithASIWidget:(id<ASIWidget>)w {
+  bool remove = [super removeWithASIWidget:w];
   [((ADXCardView *) nil_chk(cardView_)) removeViewWithADView:(ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class])];
   ASCardViewImpl_nativeRemoveViewWithASIWidget_(self, w);
   return remove;
 }
 
-- (jboolean)removeWithInt:(jint)index {
+- (bool)removeWithInt:(int32_t)index {
   id<ASIWidget> widget = [((id<JavaUtilList>) nil_chk(widgets_)) getWithInt:index];
-  jboolean remove = [super removeWithInt:index];
+  bool remove = [super removeWithInt:index];
   if (index + 1 <= [((ADXCardView *) nil_chk(cardView_)) getChildCount]) {
     [((ADXCardView *) nil_chk(cardView_)) removeViewAtWithInt:index];
     ASCardViewImpl_nativeRemoveViewWithASIWidget_(self, widget);
@@ -284,7 +294,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)addWithASIWidget:(id<ASIWidget>)w
-                 withInt:(jint)index {
+                 withInt:(int32_t)index {
   if (index != -2) {
     ADView *view = (ADView *) cast_chk([((id<ASIWidget>) nil_chk(w)) asWidget], [ADView class]);
     ASCardViewImpl_createLayoutParamsWithADView_(self, view);
@@ -452,7 +462,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   return nil;
 }
 
-- (jboolean)checkIosVersionWithNSString:(NSString *)v {
+- (bool)checkIosVersionWithNSString:(NSString *)v {
   return ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending);
 }
 
@@ -505,7 +515,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (void)setVisibleWithBoolean:(jboolean)b {
+- (void)setVisibleWithBoolean:(bool)b {
   [((ADView *) nil_chk(((ADView *) cast_chk([self asWidget], [ADView class])))) setVisibilityWithInt:b ? ADView_VISIBLE : ADView_GONE];
 }
 
@@ -513,11 +523,11 @@ J2OBJC_IGNORE_DESIGNATED_END
   ASCardViewImpl_createSimpleWrapableView(self);
 }
 
-- (jboolean)hasScrollView {
+- (bool)hasScrollView {
   return ASCardViewImpl_hasScrollView(self);
 }
 
-- (jboolean)isViewWrapped {
+- (bool)isViewWrapped {
   return ASCardViewImpl_isViewWrapped(self);
 }
 
@@ -535,10 +545,10 @@ J2OBJC_IGNORE_DESIGNATED_END
   return [((ASSimpleWrapableView *) nil_chk(simpleWrapableView_)) getForeground];
 }
 
-- (void)setForegroundFrameWithInt:(jint)l
-                          withInt:(jint)t
-                          withInt:(jint)r
-                          withInt:(jint)b {
+- (void)setForegroundFrameWithInt:(int32_t)l
+                          withInt:(int32_t)t
+                          withInt:(int32_t)r
+                          withInt:(int32_t)b {
   ASCardViewImpl_setForegroundFrameWithInt_withInt_withInt_withInt_(self, l, t, r, b);
 }
 
@@ -551,13 +561,13 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (id)createWrapperViewWithId:(id)wrapperParent
-                      withInt:(jint)viewtype {
+                      withInt:(int32_t)viewtype {
   uiView_ = [self nativeCreateViewWithInt:viewtype];
   ASViewGroupImpl_nativeAddViewWithId_withId_(ASViewImpl_getFirstChildOrSelfWithId_(wrapperParent), uiView_);
   return uiView_;
 }
 
-- (id)createWrapperViewHolderWithInt:(jint)viewType {
+- (id)createWrapperViewHolderWithInt:(int32_t)viewType {
   return [self createWrapperViewHolderNativeWithInt:viewType];
 }
 
@@ -569,7 +579,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   return uiView;
 }
 
-- (id)createWrapperViewHolderNativeWithInt:(jint)viewType {
+- (id)createWrapperViewHolderNativeWithInt:(int32_t)viewType {
   if (viewType == 1) {
     ASUIView* uiView = [ASUIView new];
     uiView.widget = self;
@@ -610,7 +620,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)nativeSetShadowOffsetWithId:(id)myView
-                          withFloat:(jfloat)shadowOffset {
+                          withFloat:(float)shadowOffset {
   UIView* uiView = (UIView*)myView;
   uiView.layer.shadowColor = [UIColor blackColor].CGColor;
   uiView.layer.shadowOffset = CGSizeMake(shadowOffset, shadowOffset);
@@ -621,14 +631,14 @@ J2OBJC_IGNORE_DESIGNATED_END
   ASCardViewImpl_nativeCreateWithJavaUtilMap_(self, params);
 }
 
-- (void)nativeMakeFrameForChildWidgetWithInt:(jint)l
-                                     withInt:(jint)t
-                                     withInt:(jint)r
-                                     withInt:(jint)b {
+- (void)nativeMakeFrameForChildWidgetWithInt:(int32_t)l
+                                     withInt:(int32_t)t
+                                     withInt:(int32_t)r
+                                     withInt:(int32_t)b {
   ASCardViewImpl_nativeMakeFrameForChildWidgetWithInt_withInt_withInt_withInt_(self, l, t, r, b);
 }
 
-- (id)nativeCreateViewWithInt:(jint)viewType {
+- (id)nativeCreateViewWithInt:(int32_t)viewType {
   ASUIView* uiView = [ASUIView new];
   uiView.commandRegex = ASCardViewImpl_WIDGET_REGEX;
   uiView.backgroundColor = [UIColor clearColor];
@@ -856,11 +866,11 @@ void ASCardViewImpl_nativePostCreate(ASCardViewImpl *self) {
 }
 
 void ASCardViewImpl_createSimpleWrapableView(ASCardViewImpl *self) {
-  jboolean wrapViewFeature = [self hasFeatureWithNSString:@"enableFeatures" withNSString:@"decorator"];
-  jint viewType = -1;
+  bool wrapViewFeature = [self hasFeatureWithNSString:@"enableFeatures" withNSString:@"decorator"];
+  int32_t viewType = -1;
   if (wrapViewFeature) {
-    jboolean hscroll = [self hasFeatureWithNSString:@"enableFeatures" withNSString:@"hscroll"];
-    jboolean vscroll = [self hasFeatureWithNSString:@"enableFeatures" withNSString:@"vscroll"];
+    bool hscroll = [self hasFeatureWithNSString:@"enableFeatures" withNSString:@"hscroll"];
+    bool vscroll = [self hasFeatureWithNSString:@"enableFeatures" withNSString:@"vscroll"];
     viewType = 1;
     if (hscroll) viewType = 2;
     if (vscroll) viewType = 3;
@@ -868,15 +878,15 @@ void ASCardViewImpl_createSimpleWrapableView(ASCardViewImpl *self) {
   self->simpleWrapableView_ = new_ASSimpleWrapableView_initWithASIWidget_withInt_(self, viewType);
 }
 
-jboolean ASCardViewImpl_hasScrollView(ASCardViewImpl *self) {
+bool ASCardViewImpl_hasScrollView(ASCardViewImpl *self) {
   return ASCardViewImpl_isViewWrapped(self) && ([((ASSimpleWrapableView *) nil_chk(self->simpleWrapableView_)) getViewtype] == 2 || [((ASSimpleWrapableView *) nil_chk(self->simpleWrapableView_)) getViewtype] == 3);
 }
 
-jboolean ASCardViewImpl_isViewWrapped(ASCardViewImpl *self) {
+bool ASCardViewImpl_isViewWrapped(ASCardViewImpl *self) {
   return [((ASSimpleWrapableView *) nil_chk(self->simpleWrapableView_)) isViewWrapped];
 }
 
-void ASCardViewImpl_setForegroundFrameWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, jint l, jint t, jint r, jint b) {
+void ASCardViewImpl_setForegroundFrameWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, int32_t l, int32_t t, int32_t r, int32_t b) {
   id foreground = [((ASSimpleWrapableView *) nil_chk(self->simpleWrapableView_)) getForeground];
   if (foreground != nil) {
     ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_(foreground, 0, 0, r - l, b - t);
@@ -901,7 +911,7 @@ void ASCardViewImpl_setShadowOffsetWithId_(ASCardViewImpl *self, id objValue) {
 void ASCardViewImpl_nativeCreateWithJavaUtilMap_(ASCardViewImpl *self, id<JavaUtilMap> params) {
 }
 
-void ASCardViewImpl_nativeMakeFrameForChildWidgetWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, jint l, jint t, jint r, jint b) {
+void ASCardViewImpl_nativeMakeFrameForChildWidgetWithInt_withInt_withInt_withInt_(ASCardViewImpl *self, int32_t l, int32_t t, int32_t r, int32_t b) {
   if ([((ASSimpleWrapableView *) nil_chk(self->simpleWrapableView_)) isViewWrapped]) {
     ASViewImpl_updateBoundsWithId_withInt_withInt_withInt_withInt_([((ASSimpleWrapableView *) nil_chk(self->simpleWrapableView_)) getWrappedView], 0, 0, r - l, b - t);
   }
@@ -921,25 +931,27 @@ void ASCardViewImpl_loadCustomAttributesWithNSString_(ASCardViewImpl *self, NSSt
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCardViewImpl)
 
+J2OBJC_NAME_MAPPING(ASCardViewImpl, "com.ashera.cardview", "AS")
+
 @implementation ASCardViewImpl_CardViewExt
 
 - (id<ASIWidget>)getWidget {
   return this$0_;
 }
 
-- (void)setMaxWidthWithInt:(jint)width {
+- (void)setMaxWidthWithInt:(int32_t)width {
   mMaxWidth_ = width;
 }
 
-- (void)setMaxHeightWithInt:(jint)height {
+- (void)setMaxHeightWithInt:(int32_t)height {
   mMaxHeight_ = height;
 }
 
-- (jint)getMaxWidth {
+- (int32_t)getMaxWidth {
   return mMaxWidth_;
 }
 
-- (jint)getMaxHeight {
+- (int32_t)getMaxHeight {
   return mMaxHeight_;
 }
 
@@ -948,8 +960,8 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCardViewImpl)
   return self;
 }
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec {
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec {
   if (mMaxWidth_ > 0) {
     widthMeasureSpec = ADView_MeasureSpec_makeMeasureSpecWithInt_withInt_(mMaxWidth_, ADView_MeasureSpec_AT_MOST);
   }
@@ -965,11 +977,11 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCardViewImpl)
   }
 }
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b {
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b {
   [super onLayoutWithBoolean:changed withInt:l withInt:t withInt:r withInt:b];
   ASViewImpl_setDrawableBoundsWithASIWidget_withInt_withInt_withInt_withInt_(this$0_, l, t, r, b);
   if (![self isOverlay]) {
@@ -997,8 +1009,8 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCardViewImpl)
           withNSObjectArray:(IOSObjectArray *)canvas {
 }
 
-- (void)updateMeasuredDimensionWithInt:(jint)width
-                               withInt:(jint)height {
+- (void)updateMeasuredDimensionWithInt:(int32_t)width
+                               withInt:(int32_t)height {
   [self setMeasuredDimensionWithInt:width withInt:height];
 }
 
@@ -1066,12 +1078,12 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCardViewImpl)
   displayFrame->bottom_ = displayFrame->top_ + [self getHeight];
 }
 
-- (void)offsetTopAndBottomWithInt:(jint)offset {
+- (void)offsetTopAndBottomWithInt:(int32_t)offset {
   [super offsetTopAndBottomWithInt:offset];
   ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], [self getLeft], [self getTop], [self getRight], [self getBottom]);
 }
 
-- (void)offsetLeftAndRightWithInt:(jint)offset {
+- (void)offsetLeftAndRightWithInt:(int32_t)offset {
   [super offsetLeftAndRightWithInt:offset];
   ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], [self getLeft], [self getTop], [self getRight], [self getBottom]);
 }
@@ -1101,7 +1113,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASCardViewImpl)
   [this$0_ setAttributeWithNSString:name withId:value withBoolean:!([value isKindOfClass:[NSString class]])];
 }
 
-- (void)setVisibilityWithInt:(jint)visibility {
+- (void)setVisibilityWithInt:(int32_t)visibility {
   [super setVisibilityWithInt:visibility];
   ASViewImpl_nativeSetVisibilityWithId_withBoolean_([this$0_ asNativeWidget], visibility != ADView_VISIBLE);
 }

@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCardViewPlugin\src\main\java\com\ashera\cardview\CardViewPlugin.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CardViewPlugin")
@@ -39,6 +40,7 @@ FOUNDATION_EXPORT void ASCardViewPlugin_initPlugin(void);
 J2OBJC_TYPE_LITERAL_HEADER(ASCardViewPlugin)
 
 @compatibility_alias ComAsheraCardviewCardViewPlugin ASCardViewPlugin;
+
 
 #endif
 

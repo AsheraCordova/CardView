@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\CardView.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CardView")
@@ -22,11 +23,14 @@
 
 @class ADColorStateList;
 @class ADRect;
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
 
 @interface ADXCardView : ADFrameLayout {
  @public
-  jint mUserSetMinWidth_;
-  jint mUserSetMinHeight_;
+  int32_t mUserSetMinWidth_;
+  int32_t mUserSetMinHeight_;
   ADRect *mContentPadding_;
   ADRect *mShadowBounds_;
 }
@@ -37,63 +41,63 @@
 
 - (ADColorStateList *)getCardBackgroundColor;
 
-- (jfloat)getCardElevation;
+- (float)getCardElevation;
 
-- (jint)getContentPaddingBottom;
+- (int32_t)getContentPaddingBottom;
 
-- (jint)getContentPaddingLeft;
+- (int32_t)getContentPaddingLeft;
 
-- (jint)getContentPaddingRight;
+- (int32_t)getContentPaddingRight;
 
-- (jint)getContentPaddingTop;
+- (int32_t)getContentPaddingTop;
 
-- (jfloat)getMaxCardElevation;
+- (float)getMaxCardElevation;
 
-- (jboolean)getPreventCornerOverlap;
+- (bool)getPreventCornerOverlap;
 
-- (jfloat)getRadius;
+- (float)getRadius;
 
-- (jboolean)getUseCompatPadding;
+- (bool)getUseCompatPadding;
 
 - (void)initCardView OBJC_METHOD_FAMILY_NONE;
 
 - (void)setCardBackgroundColorWithADColorStateList:(ADColorStateList *)color;
 
-- (void)setCardBackgroundColorWithInt:(jint)color;
+- (void)setCardBackgroundColorWithInt:(int32_t)color;
 
-- (void)setCardElevationWithFloat:(jfloat)elevation;
+- (void)setCardElevationWithFloat:(float)elevation;
 
-- (void)setContentPaddingWithInt:(jint)left
-                         withInt:(jint)top
-                         withInt:(jint)right
-                         withInt:(jint)bottom;
+- (void)setContentPaddingWithInt:(int32_t)left
+                         withInt:(int32_t)top
+                         withInt:(int32_t)right
+                         withInt:(int32_t)bottom;
 
-- (void)setMaxCardElevationWithFloat:(jfloat)maxElevation;
+- (void)setMaxCardElevationWithFloat:(float)maxElevation;
 
-- (void)setMinimumHeightWithInt:(jint)minHeight;
+- (void)setMinimumHeightWithInt:(int32_t)minHeight;
 
-- (void)setMinimumWidthWithInt:(jint)minWidth;
+- (void)setMinimumWidthWithInt:(int32_t)minWidth;
 
-- (void)setPaddingWithInt:(jint)left
-                  withInt:(jint)top
-                  withInt:(jint)right
-                  withInt:(jint)bottom;
+- (void)setPaddingWithInt:(int32_t)left
+                  withInt:(int32_t)top
+                  withInt:(int32_t)right
+                  withInt:(int32_t)bottom;
 
-- (void)setPaddingRelativeWithInt:(jint)start
-                          withInt:(jint)top
-                          withInt:(jint)end
-                          withInt:(jint)bottom;
+- (void)setPaddingRelativeWithInt:(int32_t)start
+                          withInt:(int32_t)top
+                          withInt:(int32_t)end
+                          withInt:(int32_t)bottom;
 
-- (void)setPreventCornerOverlapWithBoolean:(jboolean)preventCornerOverlap;
+- (void)setPreventCornerOverlapWithBoolean:(bool)preventCornerOverlap;
 
-- (void)setRadiusWithFloat:(jfloat)radius;
+- (void)setRadiusWithFloat:(float)radius;
 
-- (void)setUseCompatPaddingWithBoolean:(jboolean)useCompatPadding;
+- (void)setUseCompatPaddingWithBoolean:(bool)useCompatPadding;
 
 #pragma mark Protected
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec;
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec;
 
 @end
 
@@ -111,6 +115,7 @@ FOUNDATION_EXPORT ADXCardView *create_ADXCardView_init(void);
 J2OBJC_TYPE_LITERAL_HEADER(ADXCardView)
 
 @compatibility_alias AndroidxCardviewWidgetCardView ADXCardView;
+
 
 #endif
 

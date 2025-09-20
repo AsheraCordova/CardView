@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\RoundRectDrawableWithShadow.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_RoundRectDrawableWithShadow")
@@ -20,19 +21,22 @@
 #define INCLUDE_ADDrawable 1
 #include "Drawable.h"
 
+@class JavaLangBoolean;
+@class JavaLangFloat;
+
 @interface ADXRoundRectDrawableWithShadow : ADDrawable
 
 #pragma mark Package-Private
 
 - (instancetype)initPackagePrivate;
 
-+ (jfloat)calculateHorizontalPaddingWithFloat:(jfloat)maxShadowSize
-                                    withFloat:(jfloat)cornerRadius
-                                  withBoolean:(jboolean)addPaddingForCorners;
++ (float)calculateHorizontalPaddingWithFloat:(float)maxShadowSize
+                                   withFloat:(float)cornerRadius
+                                 withBoolean:(bool)addPaddingForCorners;
 
-+ (jfloat)calculateVerticalPaddingWithFloat:(jfloat)maxShadowSize
-                                  withFloat:(jfloat)cornerRadius
-                                withBoolean:(jboolean)addPaddingForCorners;
++ (float)calculateVerticalPaddingWithFloat:(float)maxShadowSize
+                                 withFloat:(float)cornerRadius
+                               withBoolean:(bool)addPaddingForCorners;
 
 // Disallowed inherited constructors, do not use.
 
@@ -48,13 +52,14 @@ FOUNDATION_EXPORT ADXRoundRectDrawableWithShadow *new_ADXRoundRectDrawableWithSh
 
 FOUNDATION_EXPORT ADXRoundRectDrawableWithShadow *create_ADXRoundRectDrawableWithShadow_initPackagePrivate(void);
 
-FOUNDATION_EXPORT jfloat ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(jfloat maxShadowSize, jfloat cornerRadius, jboolean addPaddingForCorners);
+FOUNDATION_EXPORT float ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(float maxShadowSize, float cornerRadius, bool addPaddingForCorners);
 
-FOUNDATION_EXPORT jfloat ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(jfloat maxShadowSize, jfloat cornerRadius, jboolean addPaddingForCorners);
+FOUNDATION_EXPORT float ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(float maxShadowSize, float cornerRadius, bool addPaddingForCorners);
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXRoundRectDrawableWithShadow)
 
 @compatibility_alias AndroidxCardviewWidgetRoundRectDrawableWithShadow ADXRoundRectDrawableWithShadow;
+
 
 #endif
 

@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\RoundRectDrawable.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_RoundRectDrawable")
@@ -21,6 +22,8 @@
 #include "Drawable.h"
 
 @class ADColorStateList;
+@class JavaLangBoolean;
+@class JavaLangFloat;
 
 @interface ADXRoundRectDrawable : ADDrawable
 
@@ -28,22 +31,22 @@
 
 - (ADColorStateList *)getColor;
 
-- (jfloat)getRadius;
+- (float)getRadius;
 
 - (void)setColorWithADColorStateList:(ADColorStateList *)color;
 
 #pragma mark Package-Private
 
 - (instancetype)initPackagePrivateWithADColorStateList:(ADColorStateList *)backgroundColor
-                                             withFloat:(jfloat)radius;
+                                             withFloat:(float)radius;
 
-- (jfloat)getPadding;
+- (float)getPadding;
 
-- (void)setPaddingWithFloat:(jfloat)padding
-                withBoolean:(jboolean)insetForPadding
-                withBoolean:(jboolean)insetForRadius;
+- (void)setPaddingWithFloat:(float)padding
+                withBoolean:(bool)insetForPadding
+                withBoolean:(bool)insetForRadius;
 
-- (void)setRadiusWithFloat:(jfloat)radius;
+- (void)setRadiusWithFloat:(float)radius;
 
 // Disallowed inherited constructors, do not use.
 
@@ -53,15 +56,16 @@
 
 J2OBJC_EMPTY_STATIC_INIT(ADXRoundRectDrawable)
 
-FOUNDATION_EXPORT void ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADXRoundRectDrawable *self, ADColorStateList *backgroundColor, jfloat radius);
+FOUNDATION_EXPORT void ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADXRoundRectDrawable *self, ADColorStateList *backgroundColor, float radius);
 
-FOUNDATION_EXPORT ADXRoundRectDrawable *new_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, jfloat radius) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT ADXRoundRectDrawable *new_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, float radius) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT ADXRoundRectDrawable *create_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, jfloat radius);
+FOUNDATION_EXPORT ADXRoundRectDrawable *create_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, float radius);
 
 J2OBJC_TYPE_LITERAL_HEADER(ADXRoundRectDrawable)
 
 @compatibility_alias AndroidxCardviewWidgetRoundRectDrawable ADXRoundRectDrawable;
+
 
 #endif
 

@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\CardView.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "CardView.h"
 #include "CardViewApi21Impl.h"
 #include "CardViewDelegate.h"
@@ -17,21 +22,29 @@
 #include "PluginInvoker.h"
 #include "Rect.h"
 #include "View.h"
+#include "java/lang/Boolean.h"
 #include "java/lang/Double.h"
 #include "java/lang/Float.h"
+#include "java/lang/Integer.h"
 #include "java/lang/Math.h"
 
-static void (*ADXCardView_super$_setPaddingWithInt_withInt_withInt_withInt_)(id, SEL, jint, jint, jint, jint);
+static void (*ADXCardView_super$_setPaddingWithInt_withInt_withInt_withInt_)(id, SEL, int32_t, int32_t, int32_t, int32_t);
 
-static void (*ADXCardView_super$_setMinimumWidthWithInt_)(id, SEL, jint);
+static void (*ADXCardView_super$_setMinimumWidthWithInt_)(id, SEL, int32_t);
 
-static void (*ADXCardView_super$_setMinimumHeightWithInt_)(id, SEL, jint);
+static void (*ADXCardView_super$_setMinimumHeightWithInt_)(id, SEL, int32_t);
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ADXCardView () {
  @public
-  jboolean mCompatPadding_;
-  jboolean mPreventCornerOverlap_;
+  bool mCompatPadding_;
+  bool mPreventCornerOverlap_;
   id<ADXCardViewDelegate> mCardViewDelegate_;
 }
 
@@ -61,17 +74,17 @@ __attribute__((unused)) static void ADXCardView_setBackgroundColorWithADColorSta
 
 - (void)setCardBackgroundWithADDrawable:(ADDrawable *)drawable;
 
-- (jboolean)getUseCompatPadding;
+- (bool)getUseCompatPadding;
 
-- (jboolean)getPreventCornerOverlap;
+- (bool)getPreventCornerOverlap;
 
-- (void)setShadowPaddingWithInt:(jint)left
-                        withInt:(jint)top
-                        withInt:(jint)right
-                        withInt:(jint)bottom;
+- (void)setShadowPaddingWithInt:(int32_t)left
+                        withInt:(int32_t)top
+                        withInt:(int32_t)right
+                        withInt:(int32_t)bottom;
 
-- (void)setMinWidthHeightInternalWithInt:(jint)width
-                                 withInt:(jint)height;
+- (void)setMinWidthHeightInternalWithInt:(int32_t)width
+                                 withInt:(int32_t)height;
 
 - (ADDrawable *)getCardBackground;
 
@@ -89,6 +102,7 @@ __attribute__((unused)) static ADXCardView_1 *new_ADXCardView_1_initWithADXCardV
 
 __attribute__((unused)) static ADXCardView_1 *create_ADXCardView_1_initWithADXCardView_(ADXCardView *outer$);
 
+
 J2OBJC_INITIALIZED_DEFN(ADXCardView)
 
 @implementation ADXCardView
@@ -100,43 +114,43 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 }
 J2OBJC_IGNORE_DESIGNATED_END
 
-- (void)setPaddingWithInt:(jint)left
-                  withInt:(jint)top
-                  withInt:(jint)right
-                  withInt:(jint)bottom {
+- (void)setPaddingWithInt:(int32_t)left
+                  withInt:(int32_t)top
+                  withInt:(int32_t)right
+                  withInt:(int32_t)bottom {
 }
 
-- (void)setPaddingRelativeWithInt:(jint)start
-                          withInt:(jint)top
-                          withInt:(jint)end
-                          withInt:(jint)bottom {
+- (void)setPaddingRelativeWithInt:(int32_t)start
+                          withInt:(int32_t)top
+                          withInt:(int32_t)end
+                          withInt:(int32_t)bottom {
 }
 
-- (jboolean)getUseCompatPadding {
+- (bool)getUseCompatPadding {
   return mCompatPadding_;
 }
 
-- (void)setUseCompatPaddingWithBoolean:(jboolean)useCompatPadding {
+- (void)setUseCompatPaddingWithBoolean:(bool)useCompatPadding {
   if (mCompatPadding_ != useCompatPadding) {
     mCompatPadding_ = useCompatPadding;
     [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) onCompatPaddingChangedWithADXCardViewDelegate:mCardViewDelegate_];
   }
 }
 
-- (void)setContentPaddingWithInt:(jint)left
-                         withInt:(jint)top
-                         withInt:(jint)right
-                         withInt:(jint)bottom {
+- (void)setContentPaddingWithInt:(int32_t)left
+                         withInt:(int32_t)top
+                         withInt:(int32_t)right
+                         withInt:(int32_t)bottom {
   [((ADRect *) nil_chk(mContentPadding_)) setWithInt:left withInt:top withInt:right withInt:bottom];
   [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) updatePaddingWithADXCardViewDelegate:mCardViewDelegate_];
 }
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec {
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec {
   if (!([ADXCardView_IMPL isKindOfClass:[ADXCardViewApi21Impl class]])) {
-    jint widthMode = ADView_MeasureSpec_getModeWithInt_(widthMeasureSpec);
+    int32_t widthMode = ADView_MeasureSpec_getModeWithInt_(widthMeasureSpec);
     {
-      jint minWidth;
+      int32_t minWidth;
       switch (widthMode) {
         case ADView_MeasureSpec_EXACTLY:
         case ADView_MeasureSpec_AT_MOST:
@@ -147,9 +161,9 @@ J2OBJC_IGNORE_DESIGNATED_END
         break;
       }
     }
-    jint heightMode = ADView_MeasureSpec_getModeWithInt_(heightMeasureSpec);
+    int32_t heightMode = ADView_MeasureSpec_getModeWithInt_(heightMeasureSpec);
     {
-      jint minHeight;
+      int32_t minHeight;
       switch (heightMode) {
         case ADView_MeasureSpec_EXACTLY:
         case ADView_MeasureSpec_AT_MOST:
@@ -167,17 +181,17 @@ J2OBJC_IGNORE_DESIGNATED_END
   }
 }
 
-- (void)setMinimumWidthWithInt:(jint)minWidth {
+- (void)setMinimumWidthWithInt:(int32_t)minWidth {
   mUserSetMinWidth_ = minWidth;
   [super setMinimumWidthWithInt:minWidth];
 }
 
-- (void)setMinimumHeightWithInt:(jint)minHeight {
+- (void)setMinimumHeightWithInt:(int32_t)minHeight {
   mUserSetMinHeight_ = minHeight;
   [super setMinimumHeightWithInt:minHeight];
 }
 
-- (void)setCardBackgroundColorWithInt:(jint)color {
+- (void)setCardBackgroundColorWithInt:(int32_t)color {
   [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) setBackgroundColorWithADXCardViewDelegate:mCardViewDelegate_ withADColorStateList:ADColorStateList_valueOfWithInt_(color)];
 }
 
@@ -190,53 +204,53 @@ J2OBJC_IGNORE_DESIGNATED_END
   return [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) getBackgroundColorWithADXCardViewDelegate:mCardViewDelegate_];
 }
 
-- (jint)getContentPaddingLeft {
+- (int32_t)getContentPaddingLeft {
   return ((ADRect *) nil_chk(mContentPadding_))->left_;
 }
 
-- (jint)getContentPaddingRight {
+- (int32_t)getContentPaddingRight {
   return ((ADRect *) nil_chk(mContentPadding_))->right_;
 }
 
-- (jint)getContentPaddingTop {
+- (int32_t)getContentPaddingTop {
   return ((ADRect *) nil_chk(mContentPadding_))->top_;
 }
 
-- (jint)getContentPaddingBottom {
+- (int32_t)getContentPaddingBottom {
   return ((ADRect *) nil_chk(mContentPadding_))->bottom_;
 }
 
-- (void)setRadiusWithFloat:(jfloat)radius {
+- (void)setRadiusWithFloat:(float)radius {
   [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) setRadiusWithADXCardViewDelegate:mCardViewDelegate_ withFloat:radius];
   [self setMyAttributeWithNSString:@"cornerRadius" withId:JavaLangFloat_valueOfWithFloat_(radius)];
 }
 
-- (jfloat)getRadius {
+- (float)getRadius {
   return [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) getRadiusWithADXCardViewDelegate:mCardViewDelegate_];
 }
 
-- (void)setCardElevationWithFloat:(jfloat)elevation {
+- (void)setCardElevationWithFloat:(float)elevation {
   [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) setElevationWithADXCardViewDelegate:mCardViewDelegate_ withFloat:elevation];
   [self setMyAttributeWithNSString:@"shadowOffset" withId:JavaLangDouble_valueOfWithDouble_(elevation * JavaLangMath_tanWithDouble_(JavaLangMath_toRadiansWithDouble_(elevation)))];
 }
 
-- (jfloat)getCardElevation {
+- (float)getCardElevation {
   return [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) getElevationWithADXCardViewDelegate:mCardViewDelegate_];
 }
 
-- (void)setMaxCardElevationWithFloat:(jfloat)maxElevation {
+- (void)setMaxCardElevationWithFloat:(float)maxElevation {
   [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) setMaxElevationWithADXCardViewDelegate:mCardViewDelegate_ withFloat:maxElevation];
 }
 
-- (jfloat)getMaxCardElevation {
+- (float)getMaxCardElevation {
   return [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) getMaxElevationWithADXCardViewDelegate:mCardViewDelegate_];
 }
 
-- (jboolean)getPreventCornerOverlap {
+- (bool)getPreventCornerOverlap {
   return mPreventCornerOverlap_;
 }
 
-- (void)setPreventCornerOverlapWithBoolean:(jboolean)preventCornerOverlap {
+- (void)setPreventCornerOverlapWithBoolean:(bool)preventCornerOverlap {
   if (preventCornerOverlap != mPreventCornerOverlap_) {
     mPreventCornerOverlap_ = preventCornerOverlap;
     [((id<ADXCardViewImpl>) nil_chk(ADXCardView_IMPL)) onPreventCornerOverlapChangedWithADXCardViewDelegate:mCardViewDelegate_];
@@ -245,12 +259,12 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (void)initCardView {
   ADColorStateList *backgroundColor = ADColorStateList_valueOfWithInt_(ADColor_WHITE);
-  jfloat radius = ASPluginInvoker_convertDpToPixelWithNSString_(@"10dp");
-  jfloat elevation = 0;
-  jfloat maxElevation = 0;
+  float radius = ASPluginInvoker_convertDpToPixelWithNSString_(@"10dp");
+  float elevation = 0;
+  float maxElevation = 0;
   mCompatPadding_ = false;
   mPreventCornerOverlap_ = true;
-  jint defaultPadding = 0;
+  int32_t defaultPadding = 0;
   ((ADRect *) nil_chk(mContentPadding_))->left_ = defaultPadding;
   mContentPadding_->top_ = defaultPadding;
   mContentPadding_->right_ = defaultPadding;
@@ -357,9 +371,9 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 + (void)initialize {
   if (self == [ADXCardView class]) {
-    ADXCardView_super$_setMinimumHeightWithInt_ = (void (*)(id, SEL, jint))[ADFrameLayout instanceMethodForSelector:@selector(setMinimumHeightWithInt:)];
-    ADXCardView_super$_setMinimumWidthWithInt_ = (void (*)(id, SEL, jint))[ADFrameLayout instanceMethodForSelector:@selector(setMinimumWidthWithInt:)];
-    ADXCardView_super$_setPaddingWithInt_withInt_withInt_withInt_ = (void (*)(id, SEL, jint, jint, jint, jint))[ADFrameLayout instanceMethodForSelector:@selector(setPaddingWithInt:withInt:withInt:withInt:)];
+    ADXCardView_super$_setMinimumHeightWithInt_ = (void (*)(id, SEL, int32_t))[ADFrameLayout instanceMethodForSelector:@selector(setMinimumHeightWithInt:)];
+    ADXCardView_super$_setMinimumWidthWithInt_ = (void (*)(id, SEL, int32_t))[ADFrameLayout instanceMethodForSelector:@selector(setMinimumWidthWithInt:)];
+    ADXCardView_super$_setPaddingWithInt_withInt_withInt_withInt_ = (void (*)(id, SEL, int32_t, int32_t, int32_t, int32_t))[ADFrameLayout instanceMethodForSelector:@selector(setPaddingWithInt:withInt:withInt:withInt:)];
     {
       JreStrongAssignAndConsume(&ADXCardView_IMPL, new_ADXCardViewApi21Impl_initPackagePrivate());
       [ADXCardView_IMPL initStatic];
@@ -397,6 +411,8 @@ void ADXCardView_setBackgroundColorWithADColorStateList_(ADXCardView *self, ADCo
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXCardView)
 
+J2OBJC_NAME_MAPPING(ADXCardView, "androidx.cardview.widget", "ADX")
+
 @implementation ADXCardView_1
 
 - (instancetype)initWithADXCardView:(ADXCardView *)outer$ {
@@ -409,24 +425,24 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXCardView)
   ADXCardView_setBackgroundDrawableWithADDrawable_(this$0_, drawable);
 }
 
-- (jboolean)getUseCompatPadding {
+- (bool)getUseCompatPadding {
   return [this$0_ getUseCompatPadding];
 }
 
-- (jboolean)getPreventCornerOverlap {
+- (bool)getPreventCornerOverlap {
   return [this$0_ getPreventCornerOverlap];
 }
 
-- (void)setShadowPaddingWithInt:(jint)left
-                        withInt:(jint)top
-                        withInt:(jint)right
-                        withInt:(jint)bottom {
+- (void)setShadowPaddingWithInt:(int32_t)left
+                        withInt:(int32_t)top
+                        withInt:(int32_t)right
+                        withInt:(int32_t)bottom {
   [((ADRect *) nil_chk(this$0_->mShadowBounds_)) setWithInt:left withInt:top withInt:right withInt:bottom];
   ADXCardView_super$_setPaddingWithInt_withInt_withInt_withInt_(this$0_, @selector(setPaddingWithInt:withInt:withInt:withInt:), left + ((ADRect *) nil_chk(this$0_->mContentPadding_))->left_, top + this$0_->mContentPadding_->top_, right + this$0_->mContentPadding_->right_, bottom + this$0_->mContentPadding_->bottom_);
 }
 
-- (void)setMinWidthHeightInternalWithInt:(jint)width
-                                 withInt:(jint)height {
+- (void)setMinWidthHeightInternalWithInt:(int32_t)width
+                                 withInt:(int32_t)height {
   if (width > this$0_->mUserSetMinWidth_) {
     ADXCardView_super$_setMinimumWidthWithInt_(this$0_, @selector(setMinimumWidthWithInt:), width);
   }
@@ -436,11 +452,11 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXCardView)
 }
 
 - (ADDrawable *)getCardBackground {
-  return mCardBackground_;
+  return JreRetainedLocalValue(mCardBackground_);
 }
 
 - (ADView *)getCardView {
-  return this$0_;
+  return JreRetainedLocalValue(this$0_);
 }
 
 - (void)dealloc {
@@ -477,7 +493,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ADXCardView)
     { "mCardBackground_", "LADDrawable;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
   static const void *ptrTable[] = { "LADXCardView;", "setCardBackground", "LADDrawable;", "setShadowPadding", "IIII", "setMinWidthHeightInternal", "II" };
-  static const J2ObjcClassInfo _ADXCardView_1 = { "", "androidx.cardview.widget", ptrTable, methods, fields, 7, 0x8010, 8, 2, 0, -1, -1, -1, -1 };
+  static const J2ObjcClassInfo _ADXCardView_1 = { "", "androidx.cardview.widget", ptrTable, methods, fields, 7, 0x8000, 8, 2, 0, -1, -1, -1, -1 };
   return &_ADXCardView_1;
 }
 

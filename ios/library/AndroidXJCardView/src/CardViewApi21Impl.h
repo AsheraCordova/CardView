@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\CardViewApi21Impl.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CardViewApi21Impl")
@@ -22,6 +23,7 @@
 
 @class ADColorStateList;
 @class ADContext;
+@class JavaLangFloat;
 @protocol ADXCardViewDelegate;
 
 @interface ADXCardViewApi21Impl : NSObject < ADXCardViewImpl >
@@ -30,22 +32,22 @@
 
 - (ADColorStateList *)getBackgroundColorWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
-- (jfloat)getElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
+- (float)getElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
-- (jfloat)getMaxElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
+- (float)getMaxElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
-- (jfloat)getMinHeightWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
+- (float)getMinHeightWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
-- (jfloat)getMinWidthWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
+- (float)getMinWidthWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
-- (jfloat)getRadiusWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
+- (float)getRadiusWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
 - (void)initialize__WithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
                               withADContext:(ADContext *)context
                        withADColorStateList:(ADColorStateList *)backgroundColor
-                                  withFloat:(jfloat)radius
-                                  withFloat:(jfloat)elevation
-                                  withFloat:(jfloat)maxElevation OBJC_METHOD_FAMILY_NONE;
+                                  withFloat:(float)radius
+                                  withFloat:(float)elevation
+                                  withFloat:(float)maxElevation OBJC_METHOD_FAMILY_NONE;
 
 - (void)initStatic OBJC_METHOD_FAMILY_NONE;
 
@@ -57,13 +59,13 @@
                              withADColorStateList:(ADColorStateList *)color;
 
 - (void)setElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
-                                  withFloat:(jfloat)elevation;
+                                  withFloat:(float)elevation;
 
 - (void)setMaxElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
-                                     withFloat:(jfloat)maxElevation;
+                                     withFloat:(float)maxElevation;
 
 - (void)setRadiusWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
-                               withFloat:(jfloat)radius;
+                               withFloat:(float)radius;
 
 - (void)updatePaddingWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView;
 
@@ -88,6 +90,7 @@ FOUNDATION_EXPORT ADXCardViewApi21Impl *create_ADXCardViewApi21Impl_initPackageP
 J2OBJC_TYPE_LITERAL_HEADER(ADXCardViewApi21Impl)
 
 @compatibility_alias AndroidxCardviewWidgetCardViewApi21Impl ADXCardViewApi21Impl;
+
 
 #endif
 

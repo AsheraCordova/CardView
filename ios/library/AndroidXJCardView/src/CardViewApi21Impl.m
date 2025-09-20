@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\CardViewApi21Impl.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "CardViewApi21Impl.h"
 #include "CardViewDelegate.h"
 #include "ColorStateList.h"
@@ -12,7 +17,17 @@
 #include "RoundRectDrawable.h"
 #include "RoundRectDrawableWithShadow.h"
 #include "View.h"
+#include "java/lang/Boolean.h"
+#include "java/lang/Double.h"
+#include "java/lang/Float.h"
+#include "java/lang/Integer.h"
 #include "java/lang/Math.h"
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ADXCardViewApi21Impl ()
@@ -33,9 +48,9 @@ __attribute__((unused)) static ADXRoundRectDrawable *ADXCardViewApi21Impl_getCar
 - (void)initialize__WithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
                               withADContext:(ADContext *)context
                        withADColorStateList:(ADColorStateList *)backgroundColor
-                                  withFloat:(jfloat)radius
-                                  withFloat:(jfloat)elevation
-                                  withFloat:(jfloat)maxElevation {
+                                  withFloat:(float)radius
+                                  withFloat:(float)elevation
+                                  withFloat:(float)maxElevation {
   ADXRoundRectDrawable *background = create_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(backgroundColor, radius);
   [((id<ADXCardViewDelegate>) nil_chk(cardView)) setCardBackgroundWithADDrawable:background];
   ADView *view = JreRetainedLocalValue([cardView getCardView]);
@@ -44,7 +59,7 @@ __attribute__((unused)) static ADXRoundRectDrawable *ADXCardViewApi21Impl_getCar
 }
 
 - (void)setRadiusWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
-                               withFloat:(jfloat)radius {
+                               withFloat:(float)radius {
   [((ADXRoundRectDrawable *) nil_chk(ADXCardViewApi21Impl_getCardBackgroundWithADXCardViewDelegate_(self, cardView))) setRadiusWithFloat:radius];
 }
 
@@ -52,33 +67,33 @@ __attribute__((unused)) static ADXRoundRectDrawable *ADXCardViewApi21Impl_getCar
 }
 
 - (void)setMaxElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
-                                     withFloat:(jfloat)maxElevation {
+                                     withFloat:(float)maxElevation {
   [((ADXRoundRectDrawable *) nil_chk(ADXCardViewApi21Impl_getCardBackgroundWithADXCardViewDelegate_(self, cardView))) setPaddingWithFloat:maxElevation withBoolean:[((id<ADXCardViewDelegate>) nil_chk(cardView)) getUseCompatPadding] withBoolean:[cardView getPreventCornerOverlap]];
   [self updatePaddingWithADXCardViewDelegate:cardView];
 }
 
-- (jfloat)getMaxElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
+- (float)getMaxElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
   return [((ADXRoundRectDrawable *) nil_chk(ADXCardViewApi21Impl_getCardBackgroundWithADXCardViewDelegate_(self, cardView))) getPadding];
 }
 
-- (jfloat)getMinWidthWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
+- (float)getMinWidthWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
   return [self getRadiusWithADXCardViewDelegate:cardView] * 2;
 }
 
-- (jfloat)getMinHeightWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
+- (float)getMinHeightWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
   return [self getRadiusWithADXCardViewDelegate:cardView] * 2;
 }
 
-- (jfloat)getRadiusWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
+- (float)getRadiusWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
   return [((ADXRoundRectDrawable *) nil_chk(ADXCardViewApi21Impl_getCardBackgroundWithADXCardViewDelegate_(self, cardView))) getRadius];
 }
 
 - (void)setElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView
-                                  withFloat:(jfloat)elevation {
+                                  withFloat:(float)elevation {
   [((ADView *) nil_chk([((id<ADXCardViewDelegate>) nil_chk(cardView)) getCardView])) setElevationWithFloat:elevation];
 }
 
-- (jfloat)getElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
+- (float)getElevationWithADXCardViewDelegate:(id<ADXCardViewDelegate>)cardView {
   return [((ADView *) nil_chk([((id<ADXCardViewDelegate>) nil_chk(cardView)) getCardView])) getElevation];
 }
 
@@ -87,10 +102,10 @@ __attribute__((unused)) static ADXRoundRectDrawable *ADXCardViewApi21Impl_getCar
     [cardView setShadowPaddingWithInt:0 withInt:0 withInt:0 withInt:0];
     return;
   }
-  jfloat elevation = [self getMaxElevationWithADXCardViewDelegate:cardView];
-  jfloat radius = [self getRadiusWithADXCardViewDelegate:cardView];
-  jint hPadding = JreFpToInt(JavaLangMath_ceilWithDouble_(ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(elevation, radius, [cardView getPreventCornerOverlap])));
-  jint vPadding = JreFpToInt(JavaLangMath_ceilWithDouble_(ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(elevation, radius, [cardView getPreventCornerOverlap])));
+  float elevation = [self getMaxElevationWithADXCardViewDelegate:cardView];
+  float radius = [self getRadiusWithADXCardViewDelegate:cardView];
+  int32_t hPadding = JreFpToInt(JavaLangMath_ceilWithDouble_(ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(elevation, radius, [cardView getPreventCornerOverlap])));
+  int32_t vPadding = JreFpToInt(JavaLangMath_ceilWithDouble_(ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(elevation, radius, [cardView getPreventCornerOverlap])));
   [cardView setShadowPaddingWithInt:hPadding withInt:vPadding withInt:hPadding withInt:vPadding];
 }
 

@@ -3,19 +3,34 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\RoundRectDrawableWithShadow.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "Drawable.h"
 #include "J2ObjC_source.h"
 #include "RoundRectDrawableWithShadow.h"
+#include "java/lang/Boolean.h"
+#include "java/lang/Double.h"
+#include "java/lang/Float.h"
+#include "java/lang/Integer.h"
 #include "java/lang/Math.h"
 
 
-inline jdouble ADXRoundRectDrawableWithShadow_get_COS_45(void);
-static jdouble ADXRoundRectDrawableWithShadow_COS_45;
-J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(ADXRoundRectDrawableWithShadow, COS_45, jdouble)
 
-inline jfloat ADXRoundRectDrawableWithShadow_get_SHADOW_MULTIPLIER(void);
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
+
+
+inline double ADXRoundRectDrawableWithShadow_get_COS_45(void);
+static double ADXRoundRectDrawableWithShadow_COS_45;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(ADXRoundRectDrawableWithShadow, COS_45, double)
+
+inline float ADXRoundRectDrawableWithShadow_get_SHADOW_MULTIPLIER(void);
 #define ADXRoundRectDrawableWithShadow_SHADOW_MULTIPLIER 1.5f
-J2OBJC_STATIC_FIELD_CONSTANT(ADXRoundRectDrawableWithShadow, SHADOW_MULTIPLIER, jfloat)
+J2OBJC_STATIC_FIELD_CONSTANT(ADXRoundRectDrawableWithShadow, SHADOW_MULTIPLIER, float)
 
 J2OBJC_INITIALIZED_DEFN(ADXRoundRectDrawableWithShadow)
 
@@ -26,15 +41,15 @@ J2OBJC_INITIALIZED_DEFN(ADXRoundRectDrawableWithShadow)
   return self;
 }
 
-+ (jfloat)calculateVerticalPaddingWithFloat:(jfloat)maxShadowSize
-                                  withFloat:(jfloat)cornerRadius
-                                withBoolean:(jboolean)addPaddingForCorners {
++ (float)calculateVerticalPaddingWithFloat:(float)maxShadowSize
+                                 withFloat:(float)cornerRadius
+                               withBoolean:(bool)addPaddingForCorners {
   return ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(maxShadowSize, cornerRadius, addPaddingForCorners);
 }
 
-+ (jfloat)calculateHorizontalPaddingWithFloat:(jfloat)maxShadowSize
-                                    withFloat:(jfloat)cornerRadius
-                                  withBoolean:(jboolean)addPaddingForCorners {
++ (float)calculateHorizontalPaddingWithFloat:(float)maxShadowSize
+                                   withFloat:(float)cornerRadius
+                                 withBoolean:(bool)addPaddingForCorners {
   return ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(maxShadowSize, cornerRadius, addPaddingForCorners);
 }
 
@@ -81,20 +96,20 @@ ADXRoundRectDrawableWithShadow *create_ADXRoundRectDrawableWithShadow_initPackag
   J2OBJC_CREATE_IMPL(ADXRoundRectDrawableWithShadow, initPackagePrivate)
 }
 
-jfloat ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(jfloat maxShadowSize, jfloat cornerRadius, jboolean addPaddingForCorners) {
+float ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(float maxShadowSize, float cornerRadius, bool addPaddingForCorners) {
   ADXRoundRectDrawableWithShadow_initialize();
   if (addPaddingForCorners) {
-    return (jfloat) (maxShadowSize * ADXRoundRectDrawableWithShadow_SHADOW_MULTIPLIER + (1 - ADXRoundRectDrawableWithShadow_COS_45) * cornerRadius);
+    return (float) (maxShadowSize * ADXRoundRectDrawableWithShadow_SHADOW_MULTIPLIER + (1 - ADXRoundRectDrawableWithShadow_COS_45) * cornerRadius);
   }
   else {
     return maxShadowSize * ADXRoundRectDrawableWithShadow_SHADOW_MULTIPLIER;
   }
 }
 
-jfloat ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(jfloat maxShadowSize, jfloat cornerRadius, jboolean addPaddingForCorners) {
+float ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(float maxShadowSize, float cornerRadius, bool addPaddingForCorners) {
   ADXRoundRectDrawableWithShadow_initialize();
   if (addPaddingForCorners) {
-    return (jfloat) (maxShadowSize + (1 - ADXRoundRectDrawableWithShadow_COS_45) * cornerRadius);
+    return (float) (maxShadowSize + (1 - ADXRoundRectDrawableWithShadow_COS_45) * cornerRadius);
   }
   else {
     return maxShadowSize;

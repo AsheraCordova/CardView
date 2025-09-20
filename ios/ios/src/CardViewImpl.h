@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSCardViewPlugin\src\main\java\com\ashera\cardview\CardViewImpl.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_CardViewImpl")
@@ -22,6 +23,10 @@
 
 @class ASWidgetAttribute;
 @class IOSClass;
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
+@class NSString;
 @protocol ASIFragment;
 @protocol ASILifeCycleDecorator;
 @protocol ASIWidget;
@@ -40,7 +45,7 @@
                     withNSString:(NSString *)localname;
 
 - (void)addWithASIWidget:(id<ASIWidget>)w
-                 withInt:(jint)index;
+                 withInt:(int32_t)index;
 
 - (void)addForegroundIfNeeded;
 
@@ -48,17 +53,17 @@
 
 - (id)asWidget;
 
-- (jboolean)checkIosVersionWithNSString:(NSString *)v;
+- (bool)checkIosVersionWithNSString:(NSString *)v;
 
 - (void)createWithASIFragment:(id<ASIFragment>)fragment
               withJavaUtilMap:(id<JavaUtilMap>)params;
 
 - (id)createWrapperViewWithId:(id)wrapperParent
-                      withInt:(jint)viewtype;
+                      withInt:(int32_t)viewtype;
 
-- (id)createWrapperViewHolderWithInt:(jint)viewType;
+- (id)createWrapperViewHolderWithInt:(int32_t)viewType;
 
-- (id)createWrapperViewHolderNativeWithInt:(jint)viewType;
+- (id)createWrapperViewHolderNativeWithInt:(int32_t)viewType;
 
 - (id)getAttributeWithASWidgetAttribute:(ASWidgetAttribute *)key
               withASILifeCycleDecorator:(id<ASILifeCycleDecorator>)decorator;
@@ -76,16 +81,16 @@
 
 - (id)nativeAddForeGroundWithASIWidget:(id<ASIWidget>)w;
 
-- (id)nativeCreateViewWithInt:(jint)viewType;
+- (id)nativeCreateViewWithInt:(int32_t)viewType;
 
 - (void)nativeSetShadowOffsetWithId:(id)myView
-                          withFloat:(jfloat)shadowOffset;
+                          withFloat:(float)shadowOffset;
 
 - (id<ASIWidget>)newInstance OBJC_METHOD_FAMILY_NONE;
 
-- (jboolean)removeWithInt:(jint)index;
+- (bool)removeWithInt:(int32_t)index;
 
-- (jboolean)removeWithASIWidget:(id<ASIWidget>)w;
+- (bool)removeWithASIWidget:(id<ASIWidget>)w;
 
 - (void)requestLayout;
 
@@ -101,7 +106,7 @@
 
 - (void)setIdWithNSString:(NSString *)id_;
 
-- (void)setVisibleWithBoolean:(jboolean)b;
+- (void)setVisibleWithBoolean:(bool)b;
 
 @end
 
@@ -139,6 +144,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
 
 @compatibility_alias ComAsheraCardviewCardViewImpl ASCardViewImpl;
 
+
 #endif
 
 #if !defined (ASCardViewImpl_CardViewExt_) && (INCLUDE_ALL_CardViewImpl || defined(INCLUDE_ASCardViewImpl_CardViewExt))
@@ -162,6 +168,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
 @class ASWidgetAttribute;
 @class IOSIntArray;
 @class IOSObjectArray;
+@class JavaLangBoolean;
+@class JavaLangInteger;
+@class NSString;
 @protocol ASIWidget;
 @protocol JavaUtilList;
 
@@ -182,9 +191,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
 
 - (void)getLocationOnScreenWithIntArray:(IOSIntArray *)appScreenLocation;
 
-- (jint)getMaxHeight;
+- (int32_t)getMaxHeight;
 
-- (jint)getMaxWidth;
+- (int32_t)getMaxWidth;
 
 - (id<JavaUtilList>)getMethods;
 
@@ -198,12 +207,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
 
 - (id<ASILifeCycleDecorator>)newInstanceWithASIWidget:(id<ASIWidget>)widget OBJC_METHOD_FAMILY_NONE;
 
-- (void)offsetLeftAndRightWithInt:(jint)offset;
+- (void)offsetLeftAndRightWithInt:(int32_t)offset;
 
-- (void)offsetTopAndBottomWithInt:(jint)offset;
+- (void)offsetTopAndBottomWithInt:(int32_t)offset;
 
-- (void)onMeasureWithInt:(jint)widthMeasureSpec
-                 withInt:(jint)heightMeasureSpec;
+- (void)onMeasureWithInt:(int32_t)widthMeasureSpec
+                 withInt:(int32_t)heightMeasureSpec;
 
 - (void)remeasure;
 
@@ -213,9 +222,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
                              withNSString:(NSString *)strValue
                                    withId:(id)objValue;
 
-- (void)setMaxHeightWithInt:(jint)height;
+- (void)setMaxHeightWithInt:(int32_t)height;
 
-- (void)setMaxWidthWithInt:(jint)width;
+- (void)setMaxWidthWithInt:(int32_t)width;
 
 - (void)setMyAttributeWithNSString:(NSString *)name
                             withId:(id)value;
@@ -230,7 +239,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
 
 - (void)setState4WithId:(id)value;
 
-- (void)setVisibilityWithInt:(jint)visibility;
+- (void)setVisibilityWithInt:(int32_t)visibility;
 
 - (void)state0;
 
@@ -246,16 +255,16 @@ J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl)
 
 - (void)stateYes;
 
-- (void)updateMeasuredDimensionWithInt:(jint)width
-                               withInt:(jint)height;
+- (void)updateMeasuredDimensionWithInt:(int32_t)width
+                               withInt:(int32_t)height;
 
 #pragma mark Protected
 
-- (void)onLayoutWithBoolean:(jboolean)changed
-                    withInt:(jint)l
-                    withInt:(jint)t
-                    withInt:(jint)r
-                    withInt:(jint)b;
+- (void)onLayoutWithBoolean:(bool)changed
+                    withInt:(int32_t)l
+                    withInt:(int32_t)t
+                    withInt:(int32_t)r
+                    withInt:(int32_t)b;
 
 // Disallowed inherited constructors, do not use.
 
@@ -272,6 +281,7 @@ FOUNDATION_EXPORT ASCardViewImpl_CardViewExt *new_ASCardViewImpl_CardViewExt_ini
 FOUNDATION_EXPORT ASCardViewImpl_CardViewExt *create_ASCardViewImpl_CardViewExt_initWithASCardViewImpl_(ASCardViewImpl *outer$);
 
 J2OBJC_TYPE_LITERAL_HEADER(ASCardViewImpl_CardViewExt)
+
 
 #endif
 

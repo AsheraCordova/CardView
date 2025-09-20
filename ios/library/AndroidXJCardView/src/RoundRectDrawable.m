@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-javafx-widget\AndroidXJCardView\src\main\java\androidx\cardview\widget\RoundRectDrawable.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "Color.h"
 #include "ColorStateList.h"
 #include "Drawable.h"
@@ -11,17 +16,27 @@
 #include "RectF.h"
 #include "RoundRectDrawable.h"
 #include "RoundRectDrawableWithShadow.h"
+#include "java/lang/Boolean.h"
+#include "java/lang/Double.h"
+#include "java/lang/Float.h"
+#include "java/lang/Integer.h"
 #include "java/lang/Math.h"
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ADXRoundRectDrawable () {
  @public
-  jfloat mRadius_;
+  float mRadius_;
   ADRectF *mBoundsF_;
   ADRect *mBoundsI_;
-  jfloat mPadding_;
-  jboolean mInsetForPadding_;
-  jboolean mInsetForRadius_;
+  float mPadding_;
+  bool mInsetForPadding_;
+  bool mInsetForRadius_;
   ADColorStateList *mBackground_;
 }
 
@@ -42,7 +57,7 @@ __attribute__((unused)) static void ADXRoundRectDrawable_updateBoundsWithADRect_
 @implementation ADXRoundRectDrawable
 
 - (instancetype)initPackagePrivateWithADColorStateList:(ADColorStateList *)backgroundColor
-                                             withFloat:(jfloat)radius {
+                                             withFloat:(float)radius {
   ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(self, backgroundColor, radius);
   return self;
 }
@@ -51,9 +66,9 @@ __attribute__((unused)) static void ADXRoundRectDrawable_updateBoundsWithADRect_
   ADXRoundRectDrawable_setBackgroundWithADColorStateList_(self, color);
 }
 
-- (void)setPaddingWithFloat:(jfloat)padding
-                withBoolean:(jboolean)insetForPadding
-                withBoolean:(jboolean)insetForRadius {
+- (void)setPaddingWithFloat:(float)padding
+                withBoolean:(bool)insetForPadding
+                withBoolean:(bool)insetForRadius {
   if (padding == mPadding_ && mInsetForPadding_ == insetForPadding && mInsetForRadius_ == insetForRadius) {
     return;
   }
@@ -64,7 +79,7 @@ __attribute__((unused)) static void ADXRoundRectDrawable_updateBoundsWithADRect_
   [self invalidateSelf];
 }
 
-- (jfloat)getPadding {
+- (float)getPadding {
   return mPadding_;
 }
 
@@ -72,7 +87,7 @@ __attribute__((unused)) static void ADXRoundRectDrawable_updateBoundsWithADRect_
   ADXRoundRectDrawable_updateBoundsWithADRect_(self, bounds);
 }
 
-- (void)setRadiusWithFloat:(jfloat)radius {
+- (void)setRadiusWithFloat:(float)radius {
   if (radius == mRadius_) {
     return;
   }
@@ -81,7 +96,7 @@ __attribute__((unused)) static void ADXRoundRectDrawable_updateBoundsWithADRect_
   [self invalidateSelf];
 }
 
-- (jfloat)getRadius {
+- (float)getRadius {
   return mRadius_;
 }
 
@@ -142,7 +157,7 @@ __attribute__((unused)) static void ADXRoundRectDrawable_updateBoundsWithADRect_
 
 @end
 
-void ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADXRoundRectDrawable *self, ADColorStateList *backgroundColor, jfloat radius) {
+void ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADXRoundRectDrawable *self, ADColorStateList *backgroundColor, float radius) {
   ADDrawable_init(self);
   self->mInsetForPadding_ = false;
   self->mInsetForRadius_ = true;
@@ -152,11 +167,11 @@ void ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADXR
   JreStrongAssignAndConsume(&self->mBoundsI_, new_ADRect_init());
 }
 
-ADXRoundRectDrawable *new_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, jfloat radius) {
+ADXRoundRectDrawable *new_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, float radius) {
   J2OBJC_NEW_IMPL(ADXRoundRectDrawable, initPackagePrivateWithADColorStateList_withFloat_, backgroundColor, radius)
 }
 
-ADXRoundRectDrawable *create_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, jfloat radius) {
+ADXRoundRectDrawable *create_ADXRoundRectDrawable_initPackagePrivateWithADColorStateList_withFloat_(ADColorStateList *backgroundColor, float radius) {
   J2OBJC_CREATE_IMPL(ADXRoundRectDrawable, initPackagePrivateWithADColorStateList_withFloat_, backgroundColor, radius)
 }
 
@@ -172,8 +187,8 @@ void ADXRoundRectDrawable_updateBoundsWithADRect_(ADXRoundRectDrawable *self, AD
   [((ADRectF *) nil_chk(self->mBoundsF_)) setWithFloat:((ADRect *) nil_chk(bounds))->left_ withFloat:bounds->top_ withFloat:bounds->right_ withFloat:bounds->bottom_];
   [((ADRect *) nil_chk(self->mBoundsI_)) setWithADRect:bounds];
   if (self->mInsetForPadding_) {
-    jfloat vInset = ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(self->mPadding_, self->mRadius_, self->mInsetForRadius_);
-    jfloat hInset = ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(self->mPadding_, self->mRadius_, self->mInsetForRadius_);
+    float vInset = ADXRoundRectDrawableWithShadow_calculateVerticalPaddingWithFloat_withFloat_withBoolean_(self->mPadding_, self->mRadius_, self->mInsetForRadius_);
+    float hInset = ADXRoundRectDrawableWithShadow_calculateHorizontalPaddingWithFloat_withFloat_withBoolean_(self->mPadding_, self->mRadius_, self->mInsetForRadius_);
     [self->mBoundsI_ insetWithInt:JreFpToInt(JavaLangMath_ceilWithDouble_(hInset)) withInt:JreFpToInt(JavaLangMath_ceilWithDouble_(vInset))];
     [self->mBoundsF_ setWithADRect:self->mBoundsI_];
   }
